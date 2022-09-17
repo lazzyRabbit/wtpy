@@ -35,5 +35,5 @@ hlper.dmpBarsToFile(folder='./', codes=["SZSE.399005","SZSE.399006","SZSE.399303
 # dbHelper.initDB()
 
 # 将数据下载到数据库
-# hlper.dmpBarsToDB(dbHelper, codes=["CFFEX.IF.2103"], period="day")
+hlper.dmpBarsToDB(dbHelper, codes=["CFFEX.IF.2103"], period="day")
 # hlper.dmpAdjFactorsToDB(dbHelper, codes=["SSE.600000",'SSE.600001'])
