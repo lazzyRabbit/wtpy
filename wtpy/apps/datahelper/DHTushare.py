@@ -19,17 +19,33 @@ def transCode(stdCode:str) -> str:
             rawCode = items[2]
         else:
             rawCode = items[1]
+            
+        return rawCode.upper() + "." + exchg
     else:
         # 期货合约代码，格式为DCE.a.2018
-        rawCode = ''
-        if exchg == "CZCE":
-            rawCode = items[1] + items[2][1:]
-        else:
-            rawCode = ''.join(items[1:])
-    return rawCode.upper() + "." + exchg
-
+        tsExchgCodeMap = {
+            "CZCE":"ZCE",
+            "SHFE":"SHF",
+            "DCE":"DCE",
+            "CFFEX":"CFX",
+            "INE":"INE"
+        }
+        
+        tsExchg = tsExchgCodeMap[exchg]
+        
+        # 判断是否是交易合约
+        if items[2].isdigit() == True:
+            rawCode = items[1] + items[2]
+        # 是否主力合约
+        elif items[2] == "HOT":
+            rawCode = items[1]
+        # 连续合约
+        else :
+            # 这里问清楚再下笔
+            pass 
     
-
+        return rawCode + "." + tsExchg
+    
 class DHTushare(BaseDataHelper):
 
     def __init__(self):
