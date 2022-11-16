@@ -90,8 +90,8 @@ def do_trading_analyze(df_closes, df_funds):
     summary["avgprof_win"] = avgprof_win
     summary["avgprof_lose"] = avgprof_lose
     summary["winloseratio"] = winloseratio
-    summary["largest_profit"] = largest_profit
-    summary["largest_loss"] = largest_loss
+    summary["largest_profit"] = int(largest_profit)
+    summary["largest_loss"] = int(largest_loss)
     summary["avgtrd_hold_bar"] = avgtrd_hold_bar
     summary["avgemphold_bar"] = avgemphold_bar
     summary["winempty_avgholdbar"] = winempty_avgholdbar
